@@ -1,0 +1,9 @@
+br/com/souza/optimistic_locking/dto/BuyProductRequest$BuyProductRequestBuilder.class
+br/com/souza/optimistic_locking/database/repository/IProductRepository.class
+br/com/souza/optimistic_locking/dto/BuyProductRequest.class
+br/com/souza/optimistic_locking/OptimisticLockingApplication.class
+br/com/souza/optimistic_locking/service/ProductService.class
+br/com/souza/optimistic_locking/dto/NewProductRequest$NewProductRequestBuilder.class
+br/com/souza/optimistic_locking/database/model/Product.class
+br/com/souza/optimistic_locking/dto/NewProductRequest.class
+br/com/souza/optimistic_locking/database/model/Product$ProductBuilder.class

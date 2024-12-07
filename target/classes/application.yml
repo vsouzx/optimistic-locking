@@ -1,0 +1,10 @@
+spring:
+  datasource:
+    url: jdbc:${MYSQL_URL:mysql://localhost:3306/optmistic_locking_db}
+    username: ${DATABASE_USERNAME:root}
+    password: ${DATABASE_PASSWORD:Vs368797@}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+  show-sql: true
