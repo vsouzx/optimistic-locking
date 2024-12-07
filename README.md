@@ -15,7 +15,7 @@ Assim, em vez de bloquear os recursos desde o início, o lock otimista permite q
 <p>Agora, a tabela de produtos possui o atributo <code>version</code> que irá ser responsável por validar as transações na hora que elas são commitadas.</p>
 <img width="635" alt="Captura de Tela 2024-12-07 às 19 04 29" src="https://github.com/user-attachments/assets/310f4b34-07e1-4a1d-8ac9-cf7d019b7dcc">
 
-<p>Com isso, podemos usar algumas técnicas de retry ou mensagem personalizada pro usuário que tomar <code>LockException</code>, garantindo melhor experiencia pro usuário e integridade dos dados</p>
+<p>Com isso, podemos usar algumas técnicas de retry ou mensagem personalizada pro usuário que tomar <code>LockException</code>, garantindo melhor experiencia pro usuário e consistência dos dados</p>
 
 ## Como implementar com Java e Spring
 
