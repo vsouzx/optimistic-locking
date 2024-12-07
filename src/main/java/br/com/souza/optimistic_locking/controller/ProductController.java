@@ -28,7 +28,8 @@ public class ProductController {
     }
 
     @PatchMapping
-    public ResponseEntity<String> buyProduct(@RequestBody BuyProductRequest request) throws Exception{
-        return new ResponseEntity<>(productService.buyProduct(request), HttpStatus.CREATED);
+    public ResponseEntity<Void> buyProduct(@RequestBody BuyProductRequest request) throws Exception{
+        productService.buyProduct(request);
+        return new ResponseEntity<>(HttpStatus.CREATED);
     }
 }

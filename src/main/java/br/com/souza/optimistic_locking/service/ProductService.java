@@ -4,7 +4,10 @@ import br.com.souza.optimistic_locking.database.model.Product;
 import br.com.souza.optimistic_locking.database.repository.IProductRepository;
 import br.com.souza.optimistic_locking.dto.BuyProductRequest;
 import br.com.souza.optimistic_locking.dto.NewProductRequest;
+import jakarta.persistence.OptimisticLockException;
 import lombok.RequiredArgsConstructor;
+import org.springframework.dao.OptimisticLockingFailureException;
+import org.springframework.orm.ObjectOptimisticLockingFailureException;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -31,7 +34,26 @@ public class ProductService {
         return product;
     }
 
-    public String buyProduct(BuyProductRequest request) throws Exception{
+    public void buyProduct(BuyProductRequest request) throws Exception{
+        int attempts = 0;
+
+        while (attempts < 3) {
+            try{
+                process(request);
+                return;
+            }catch (OptimisticLockingFailureException e){
+                System.out.println("Lock exception. Retrying.");
+                attempts++;
+                Thread.sleep(1000);
+            } catch (Exception e){
+                System.out.println("Error while buying product: " + e.getMessage());
+                throw e;
+            }
+        }
+        throw new Exception("Lock exception");
+    }
+
+    private void process(BuyProductRequest request) throws Exception {
         Product product = productRepository.findById(request.getId()).orElse(null);
         if(product == null) throw new Exception(String.format("Product with id %s was not found", request.getId()));
 
@@ -40,7 +62,5 @@ public class ProductService {
         product.decreaseQuantity(request.getDesiredQuantity());
 
         productRepository.save(product);
-
-        return String.format("%sx %s purchased successfully", request.getDesiredQuantity(), product.getName());
     }
 }

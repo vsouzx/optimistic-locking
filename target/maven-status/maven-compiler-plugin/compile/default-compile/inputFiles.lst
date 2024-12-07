@@ -1,6 +1,0 @@
-/Users/souzadev/Documents/projetos intellij/optimistic-locking/src/main/java/br/com/souza/optimistic_locking/OptimisticLockingApplication.java
-/Users/souzadev/Documents/projetos intellij/optimistic-locking/src/main/java/br/com/souza/optimistic_locking/database/model/Product.java
-/Users/souzadev/Documents/projetos intellij/optimistic-locking/src/main/java/br/com/souza/optimistic_locking/database/repository/IProductRepository.java
-/Users/souzadev/Documents/projetos intellij/optimistic-locking/src/main/java/br/com/souza/optimistic_locking/dto/BuyProductRequest.java
-/Users/souzadev/Documents/projetos intellij/optimistic-locking/src/main/java/br/com/souza/optimistic_locking/dto/NewProductRequest.java
-/Users/souzadev/Documents/projetos intellij/optimistic-locking/src/main/java/br/com/souza/optimistic_locking/service/ProductService.java

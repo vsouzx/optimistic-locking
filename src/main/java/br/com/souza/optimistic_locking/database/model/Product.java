@@ -1,6 +1,5 @@
 package br.com.souza.optimistic_locking.database.model;
 
-import br.com.souza.optimistic_locking.dto.NewProductRequest;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -28,6 +27,9 @@ public class Product {
 
     @Column
     private Integer quantity;
+
+    @Version
+    private Integer version;
 
     public void decreaseQuantity(Integer desiredQuantity){
         this.quantity = this.quantity - desiredQuantity;
